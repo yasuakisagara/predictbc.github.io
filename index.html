@@ -14,12 +14,31 @@
     gtag('config', 'G-VC98V0Z94P');
   </script>
 
-  <!-- Meta refresh for redirect -->
-  <meta http-equiv="refresh" content="0;url=https://ibtr-risk-tool-gmhjh2lmx3v7nqckqmflh6.streamlit.app/" />
+  <!-- Safari 26.x 対応チェック -->
+  <script>
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const safariVersionMatch = navigator.userAgent.match(/Version\/(\d+)\.(\d+)/);
+    const majorVersion = safariVersionMatch ? parseInt(safariVersionMatch[1]) : null;
+
+    // Safari 26.x 系または古いSafariなら注意を表示
+    if (isSafari && majorVersion >= 26) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("warning").style.display = "block";
+      });
+    } else {
+      // 対応ブラウザの場合はリダイレクト
+      window.location.href = "https://ibtr-risk-tool-gmhjh2lmx3v7nqckqmflh6.streamlit.app/";
+    }
+  </script>
 </head>
 <body>
-  <p>
-    Redirecting to IBTR Risk Prediction Tool...<br />
+  <!-- Safari非対応ブラウザへの注意文 -->
+  <div id="warning" style="display: none; color: red; font-size: 1rem; margin: 2em;">
+    ご使用のSafariバージョンでは、本ツールが正常に表示されないことがあります。<br />
+    <strong>Google Chrome</strong> または <strong>最新のSafari</strong> でのご利用を推奨します。
+  </div>
+
+  <p style="font-size: 0.9em; color: gray;">
     If you are not redirected, <a href="https://ibtr-risk-tool-gmhjh2lmx3v7nqckqmflh6.streamlit.app/">click here</a>.
   </p>
 </body>
